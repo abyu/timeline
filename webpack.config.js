@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path')
 
 module.exports = {
@@ -12,13 +13,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Timeline',
       template: './src/content/index.ejs',
-    })
+    }),
+    new ExtractTextPlugin('styles.css'),
   ],
   module: {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules)/,
       loaders: 'babel-loader',
+    },{
+      test: /\.(scss|css)$/,
+      loader: ExtractTextPlugin.extract('css-loader!sass-loader')
     }]
   }
 }
