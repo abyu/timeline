@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from './main.scss';
 import HorizontalTimeline from 'react-horizontal-timeline';
 import Axios from 'Axios';
+import PatchViewer from '../PatchViewer';
 
 class Main extends Component {
 
@@ -45,9 +46,7 @@ class Main extends Component {
          values={ this.state.events.map(e => e.date) } />
       </div>
       <div className="patch" >
-        <pre>
-          {this.state.patch}
-        </pre>
+       <PatchViewer rawPatch={this.state.patch} />
       </div>
   </div>)
   }

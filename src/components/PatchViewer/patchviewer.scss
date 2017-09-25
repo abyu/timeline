@@ -1,0 +1,13 @@
+table.patch {
+  tr {
+    margin: 0;
+  }
+  td{
+    &.line_add {
+      background-color: green;
+    }
+    &.line_delete {
+      background-color: red;
+    }
+  }
+}
